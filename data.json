@@ -13,7 +13,7 @@
             "question": "¿Qué monarca terminó añadiendo las alas que le dan forma de U al palacio?",
             "answers":{
                 "a": "Felipe VI",
-                "b": "Carlos III-",
+                "b": "Carlos III",
                 "c": "Fernando VII",
                 "d": "Carlos V"
         },
@@ -37,7 +37,7 @@
             "a": "Puertas",
             "b": "Escaleras",
             "c": "Acueducto",
-            "d": "Galería portificada-"
+            "d": "Galería portificada"
         },
         "results":{
             "a": false,
@@ -57,7 +57,7 @@
         "question": "¿Qué función cumplía la Casa de Oficios?",
         "answers":{
             "a": "Almacén de mantenimiento",
-            "b": "Mantenimiento y administración del Real Sitio-",
+            "b": "Mantenimiento y administración del Real Sitio",
             "c": "Alojamiento de los sirvientes",
             "d": "Picadero para el rey"
         },
@@ -80,7 +80,7 @@
         "question": "Para entrar al Jardín de la Isla tendrás que pasar por un PUENTE. ¿Qué hay debajo de ese puente?",
         "answers":{
             "a": "Un foso",
-            "b": "Un canal de agua-",
+            "b": "Un canal de agua",
             "c": "Un lago",
             "d": "Un pantano"
         },
@@ -102,7 +102,7 @@
         "id": 5,
         "question": "El Jardín de la Isla tiene forma TRIANGULAR. Pero... ¿a qué crees que debe su nombre?",
         "answers":{
-            "a": "Está rodeado de agua-",
+            "a": "Está rodeado de agua",
             "b": "Al apellido de un personaje famoso",
             "c": "Está rodeado de palmeras",
             "d": "A su forma poligonal"
@@ -127,7 +127,7 @@
             "a": "Palacio de El Escorial",
             "b": "Templo griego",
             "c": "Coliseo de Roma",
-            "d": "Panteón de Roma-"
+            "d": "Panteón de Roma"
         },
         "results":{
             "a": false,
@@ -149,7 +149,7 @@
             "a": "Las fuentes del paseo",
             "b": "Un grupo de árboles",
             "c": "Unas barandillas",
-            "d": "Una presa-"
+            "d": "Una presa"
         },
         "results":{
             "a": false,
@@ -168,7 +168,7 @@
         "id": 8,
         "question": "¿Qué animales acompañan a los infantes de la fuente de la Mariblanca?",
         "answers":{
-            "a": "Delfines-",
+            "a": "Delfines",
             "b": "Tiburones",
             "c": "Camaleones",
             "d": "Merluzas"
@@ -192,7 +192,7 @@
         "answers":{
             "a": "Cine antiguo",
             "b": "Archivo histórico",
-            "c": "Museo taurino-",
+            "c": "Museo taurino",
             "d": "Enfermería"
         },
         "results":{
@@ -214,7 +214,7 @@
     "question": "El antiguo Hospital de San Carlos se construyó durante el mandato de Carlos III. El edificio se rehabilitó y volvió a abrir sus puertas en mayo de 2022. ¿De cuál de estas instituciones es sede este antiguo hospital?",
     "answers":{
         "a": "Residencia Universitaria Real",
-        "b": "Universidad Rey Juan Carlos-",
+        "b": "Universidad Rey Juan Carlos",
         "c": "Escuela de Bellas Artes",
         "d": "Escuela Oficial de Idiomas"
     },
