@@ -1,5 +1,6 @@
 let currentQuestionIndex = 0;
 let questionsData = [];
+let correctAnswersCount = 0;
 
 function createRadioInputs(questionData, articleElement) {
   const answers = questionData.answers;
@@ -50,18 +51,28 @@ function validateAnswer(questionIndex, selectedAnswer) {
   const question = questionsData[questionIndex];
   const correctAnswer = Object.keys(question.results).find(key => question.results[key]);
 
-  if (selectedAnswer === correctAnswer) {
-    alert('¡Respuesta correcta!');
-  } else {
-    alert('Respuesta incorrecta. La respuesta correcta es: ' + question.answers[correctAnswer]);
-  }
+  const radioInputs = document.querySelectorAll(`input[name="question_${question.id}"]`);
 
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questionsData.length) {
-    showQuestion(currentQuestionIndex);
-  } else {
-    alert('¡Fin del quiz!');
-  }
+  radioInputs.forEach(input => {
+    if (input.value === correctAnswer) {
+      input.parentElement.style.backgroundColor = 'green'; // Colorear la respuesta correcta de verde
+      if (selectedAnswer === correctAnswer) {
+        correctAnswersCount++; // Incrementar el contador de respuestas correctas
+      }
+    } else if (input.value === selectedAnswer) {
+      input.parentElement.style.backgroundColor = 'red'; // Colorear la respuesta seleccionada incorrecta de rojo
+    }
+    input.disabled = true; // Deshabilitar las opciones después de seleccionar una respuesta
+  });
+
+  setTimeout(() => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questionsData.length) {
+      showQuestion(currentQuestionIndex);
+    } else {
+      showResult(correctAnswersCount); // Mostrar el resultado al final del quiz
+    }
+  }, 2000); // Esperar 2 segundos antes de pasar a la siguiente pregunta
 }
 
 document.getElementById('botonSig').addEventListener('click', function() {
@@ -72,6 +83,24 @@ document.getElementById('botonSig').addEventListener('click', function() {
     alert('Por favor, selecciona una respuesta.');
   }
 });
+
+function showResult(correctCount) {
+  const resultMessage = `Respuestas correctas: ${correctCount} de ${questionsData.length}`;
+  window.open('', 'Result Popup', 'width=400,height=200');
+  const resultPopupDocument = window.document;
+  resultPopupDocument.write(`
+    <html>
+      <head>
+        <title>Resultado del Quiz</title>
+      </head>
+      <body>
+        <h2>¡Fin del juego!</h2>
+        <p>${resultMessage}</p>
+        <button onclick="window.close()">Cerrar</button>
+      </body>
+    </html>
+  `);
+}
 
 // Obtener los datos del archivo JSON
 fetch('./data.json')
