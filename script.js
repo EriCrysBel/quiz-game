@@ -1,5 +1,20 @@
-   function createRadioInputs(questionData, articleElement, index) { 
+let currentQuestionIndex = 0;
+    let questionsData = [];
+
+    function createRadioInputs(questionData, articleElement) {
       const answers = questionData.answers;
+      const imgQuestion = questionData.img_question;
+
+      const questionImage = document.createElement('img');
+      questionImage.src = imgQuestion.url;
+      questionImage.alt = imgQuestion.alt;
+      questionImage.classList.add('question-image');
+      articleElement.appendChild(questionImage);
+
+      const questionDesc = document.createElement('p');
+      questionDesc.textContent = imgQuestion.desc;
+      articleElement.appendChild(questionDesc);
+
       for (const option in answers) {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -10,9 +25,58 @@
         label.appendChild(input);
         articleElement.appendChild(label);
       }
-      articleElement.classList.add('tab-pane'); // Agregar clase 'tab-pane'
-      articleElement.id = `tab-pane-${index}`; // Agregar ID con número de elemento
+      articleElement.classList.add('question-pane');
     }
+
+    function showQuestion(index) {
+      const questions = questionsData[index];
+      const section = document.getElementById('section');
+      section.innerHTML = ''; // Clear previous question
+
+      const articleElement = document.createElement('article');
+      const questionTitle = document.createElement('h3');
+      questionTitle.textContent = questions.question;
+      articleElement.appendChild(questionTitle);
+
+      createRadioInputs(questions, articleElement);
+
+      section.appendChild(articleElement);
+
+      if (index === 0) {
+        document.getElementById('botonSig').disabled = false;
+      } else {
+        document.getElementById('botonSig').disabled = true;
+      }
+    }
+
+    function validateAnswer(questionIndex, selectedAnswer) {
+      const question = questionsData[questionIndex];
+      const correctAnswer = Object.keys(question.results).find(key => question.results[key]);
+    
+      if (selectedAnswer === correctAnswer) {
+        alert('¡Respuesta correcta!');
+      } else {
+        alert('Respuesta incorrecta. La respuesta correcta es: ' + question.answers[correctAnswer]);
+      }
+    
+      // Habilitar el botón "Siguiente"
+      document.getElementById('botonSig').disabled = false;
+    }
+    
+    document.getElementById('botonSig').addEventListener('click', function() {
+      const selectedAnswer = document.querySelector(`input[name="question_${questionsData[currentQuestionIndex].id}"]:checked`);
+      if (selectedAnswer) {
+        validateAnswer(currentQuestionIndex, selectedAnswer.value);
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questionsData.length) {
+          showQuestion(currentQuestionIndex);
+        } else {
+          alert('¡Fin del quiz!');
+        }
+      } else {
+        alert('Por favor, selecciona una respuesta.');
+      }
+    });
 
     // Obtener los datos del archivo JSON
     fetch('./data.json')
@@ -22,36 +86,11 @@
         title.innerHTML = `<h1>${data.title}</h1><h2>${data.description}</h2><h3>${data.author}</h3>`;
 
         const img = document.createElement('img');
-        img.setAttribute("src", "./img/aranjuez1.jpg");
+        img.setAttribute("src", data.img_feature.url);
+        img.setAttribute("alt", data.img_feature.alt);
         title.appendChild(img);
 
-        const questions = data.questions[0];
-        questions.forEach((question, index) => {
-          const section = document.getElementById('section');
-          const articleElement = document.createElement('article');
-          const questionTitle = document.createElement('h3');
-          questionTitle.textContent = question.question;
-          articleElement.appendChild(questionTitle);
-
-          createRadioInputs(question, articleElement, index); // Pasar el índice como argumento
-
-          section.appendChild(articleElement);
-        });
-
-        // Código para cambiar entre pestañas
-        const tabLinks= document.querySelectorAll('.tab-link');
-        const tabPanes= document.querySelectorAll('.tab-pane');
-
-        tabLinks.forEach(
-          function(link,index){
-            link.addEventListener('click',function(){
-              tabPanes.forEach(function(pane,indice){
-                pane.style.display='none';
-              });
-              tabPanes[index].style.display='block';
-            })    
-          }
-        );
-
+        questionsData = data.questions[0];
+        showQuestion(currentQuestionIndex);
       })
       .catch(err => console.error('Error fetching data:', err));
