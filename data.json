@@ -1,0 +1,233 @@
+{
+    "title":"Paseo por el casco viejo de Aranjuez",
+    "id_test":"",
+    "description": "Un paseo de una hora por los monumentos más representativos de Aranjuez",
+    "author": "Erika",
+    "img_feature":{
+        "url": "./img/plazaayuntamiento.jpg",
+        "alt": "Vista de la Plaza Mayor de Aranjuez"
+    },
+    "questions" : [[
+        {
+        "id": 1,
+        "question": "¿Cuántos movimientos tiene el Concierto de Aranjuez?",
+        "answers":{
+            "a": "3 movimientos",
+            "b": "7 movimientos",
+            "c": "2 movimientos",
+            "d": "4 movimientos"
+        },
+        "results":{
+            "a": true,
+            "b": false,
+            "c": false,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/movimientos.jpg",
+            "alt": "partitura",
+            "desc": "Encontrarás la partitura en tu camino"
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 2,
+        "question": "¿Quién mandó construir la iglesia de San Antonio?",
+        "answers":{
+            "a": "Carlos III",
+            "b": "Alfonso XII",
+            "c": "Fernando VI",
+            "d": "Fernando VII"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": true,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/partitura.jpg",
+            "alt": "partitura",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 3,
+        "question": "¿Qué función cumplía la Casa de Oficios?",
+        "answers":{
+            "a": "Almacén de mantenimiento",
+            "b": "Mantenimiento y administración del Real Sitio",
+            "c": "Alojamiento de los sirvientes",
+            "d": "Picadero para el rey"
+        },
+        "results":{
+            "a": false,
+            "b": true,
+            "c": false,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/casaoficios.jpg",
+            "alt": "casita",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 4,
+        "question": "¿Cuál es la piedra que más abunda en las construcciones de Aranjuez?",
+        "answers":{
+            "a": "Granito",
+            "b": "Piedra de colmenar",
+            "c": "Marmol",
+            "d": "Ladrillo"
+        },
+        "results":{
+            "a": false,
+            "b": true,
+            "c": false,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/pedrolo.jpg",
+            "alt": "casita",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 5,
+        "question": "¿Qué deidad mitológica representa la escultura principal de la Fuente de Mariblanca?",
+        "answers":{
+            "a": "Afrodita",
+            "b": "Hera",
+            "c": "Venus del jarro",
+            "d": "Saturno"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": true,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/venus.jpg",
+            "alt": "venus del jarro",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 6,
+        "question": "¿En qué está inspirada la forma de la Iglesia de San Antonio?",
+        "answers":{
+            "a": "Palacio de El Escorial",
+            "b": "Templo griego",
+            "c": "Coliseo de Roma",
+            "d": "Panteón de Roma"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": false,
+            "d": true
+        },
+        "img_question":{
+            "url": "./img/panteon.jpg",
+            "alt": "panteon",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 7,
+        "question": "¿Qué animales custodian el flujo del agua?",
+        "answers":{
+            "a": "Tiburones",
+            "b": "Patos",
+            "c": "Leones",
+            "d": "Ajolotes"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": true,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/leones.jpg",
+            "alt": "leones",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 8,
+        "question": "¿Qué animales acompañan a los infantes de la fuente?",
+        "answers":{
+            "a": "Delfines",
+            "b": "Tiburones",
+            "c": "Camaleones",
+            "d": "Merluzas"
+        },
+        "results":{
+            "a": true,
+            "b": false,
+            "c": false,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/delfines.jpg",
+            "alt": "delfines",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 9,
+        "question": "¿Qué elemento astronómico está representado?",
+        "answers":{
+            "a": "Plutón",
+            "b": "La Luna",
+            "c": "Meteorito",
+            "d": "El Sol"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": false,
+            "d": true
+        },
+        "img_question":{
+            "url": "./img/sol.jpg",
+            "alt": "sol",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    },{
+        "id": 10,
+        "question": "¿Qué animales están a los pies de la escultura principal?",
+        "answers":{
+            "a": "Ranas",
+            "b": "Peces",
+            "c": "Sapos",
+            "d": "Unicornios"
+        },
+        "results":{
+            "a": false,
+            "b": false,
+            "c": true,
+            "d": false
+        },
+        "img_question":{
+            "url": "./img/sapos.jpg",
+            "alt": "sapos",
+            "desc": ".."
+        },
+        "hint": "",
+        "curiosity": ""
+    }
+    ]]
+    }
