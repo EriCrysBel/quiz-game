@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+body{
+display: contents;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.title{
+ background-color: aliceblue;
+}
+.btn-jugar{
+  background-color: blueviolet;
+  font-size: 25px;
+  padding: 20px;
+  border-radius: 3em;
+  color: white;
+  cursor: pointer;
+}
+header{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.logo img{
+  width: 200px;
+}

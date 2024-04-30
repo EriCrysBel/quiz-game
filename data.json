@@ -4,10 +4,11 @@
     "description": "Un paseo de una hora por los monumentos más representativos de Aranjuez",
     "author": "Erika Crystal Bello Vargas",
     "img_feature":{
-        "url": "./img/palacio.jpg",
+        "url": "./img/miniminiso-logo.PNG",
         "alt": "Vista de la Plaza Mayor de Aranjuez"
     },
     "questions" : [[
+        
         {
         "id": 1,
         "question": "¿Qué monarca terminó añadiendo las alas que le dan forma de U al palacio?",

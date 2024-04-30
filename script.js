@@ -86,9 +86,8 @@ document.getElementById('botonSig').addEventListener('click', function() {
 
 function showResult(correctCount) {
   const resultMessage = `Respuestas correctas: ${correctCount} de ${questionsData.length}`;
-  window.open('', 'Result Popup', 'width=400,height=200');
-  const resultPopupDocument = window.document;
-  resultPopupDocument.write(`
+  const resultWindow = window.open('', 'Result Popup', 'width=400,height=200');
+  resultWindow.document.write(`
     <html>
       <head>
         <title>Resultado del Quiz</title>
@@ -107,11 +106,17 @@ fetch('./data.json')
   .then(response => response.json())
   .then(data => {
     const title = document.getElementById('title');
-    title.innerHTML = `<h1>${data.title}</h1><h2>${data.description}</h2><h3>${data.author}</h3>`;
+    title.className = "title";
+    title.innerHTML = `
+    <h1>${data.title}</h1>
+    <h2>${data.description}</h2>
+    <h3>${data.author}</h3>`;
 
     const img = document.createElement('img');
+
     img.setAttribute("src", data.img_feature.url);
     img.setAttribute("alt", data.img_feature.alt);
+    img.className = "logotipo";
     title.appendChild(img);
 
     questionsData = data.questions[0];
