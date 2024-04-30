@@ -4,8 +4,8 @@
     "description": "Un paseo de una hora por los monumentos más representativos de Aranjuez",
     "author": "Erika",
     "img_feature":{
-        "url": "./img/plazaayuntamiento.jpg",
-        "alt": "Vista de la Plaza Mayor de Aranjuez"
+        "url": "./img/aranjuez1.jpg",
+        "alt": "Vista del estanco de los chinescos"
     },
     "questions" : [[
         {
