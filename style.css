@@ -1,11 +1,53 @@
+body{
+  background-color: rgb(235, 251, 238);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 header{
 display: flex;
 font-size: 50px;
 justify-content: center;
 margin: 1em;
+background-color: rgb(231, 247, 251);
+}
+
+.title{
+  display: grid;
+  grid-template-areas: 
+  "h1   imagen"
+  "h2   imagen"
+  "h3   imagen";
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.title h1{
+  grid-area: h1;
+  margin: 1em;
+  line-height: 2em;
+}
+.title h2{
+  grid-area: h2;
+  margin: 1em;
+  line-height: 2em;
+}
+.title h3{
+  grid-area: h3;
+  margin: 1em;
+  line-height: 2em;
+}
+.logotipo{
+  grid-area: imagen;
+border-radius: 50%;
+
 }
 
 /* Clase para mostrar */
 .question-image{
-  width: 600px;
+  width: 50%;
+  height: 50%;
+}
+section{
+  left: 20em;
 }
