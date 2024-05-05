@@ -1,37 +1,64 @@
-const header = document.createElement('header');
-title.classList.add('masthead');
-document.body.appendChild(header)
-header.innerHTML = `
-<div class="logo">
-        <img src="img/rexygame2.png" alt="logotipo">
-    </div>
-    <div class="titulo masthead-subheading">
-        <h1>Quiz Game!</h1>
-    </div>`;
 
+const header= document.createElement('header');
+document.body.appendChild(header);
+
+const divLogo=document.createElement('div');
+divLogo.classList.add('logo');
+header.appendChild(divLogo);
+
+const logoImage = document.createElement('img');
+  logoImage.src = 'img/rexygame2.png';
+  logoImage.alt = "logotipo";
+  divLogo.appendChild(logoImage);
+
+  const divTitulo=document.createElement('div');
+  divLogo.classList.add('titulo');
+  header.appendChild(divTitulo);
+
+  const titulo = document.createElement('h1')
+  const texTitulo = document.createTextNode('Quiz Game')
+  titulo.appendChild(texTitulo)
+  divTitulo.appendChild(titulo)
+
+  const quizContainer = document.createElement('div')
+  quizContainer.classList.add('quiz-container')
+  quizContainer.innerHTML=
+  `
+  <div class="title" id="title">
+      
+  </div>
+  
+  <div id="section"></div>
+  
+  <article class="form-buttons">
+      <button type="button" id="botonSig">Siguiente</button>
+  </article>
+  `
+  document.body.appendChild(quizContainer)
+
+  
 // Obtener los datos del archivo JSON
 fetch('./data.json')
-  .then(response => response.json())
-  .then(data => {
-    const title = document.createElement('div');
-    title.classList.add('title');
-    document.body.appendChild(title)
-    title.innerHTML = `
-    <h1>${data.title}</h1>
-    <h2>${data.description}</h2>
-    <h3>${data.author}</h3>`;
+.then(response => response.json())
+.then(data => {
+  const title = document.getElementById('title');
+  title.className = "title";
+  title.innerHTML = `
+  <h1>${data.title}</h1>
+  <h2>${data.description}</h2>
+  <h3>${data.author}</h3>`;
 
-    const img = document.createElement('img');
+  const img = document.createElement('img');
 
-    img.setAttribute("src", data.img_feature.url);
-    img.setAttribute("alt", data.img_feature.alt);
-    img.className = "logotipo";
-    title.appendChild(img);
+  img.setAttribute("src", data.img_feature.url);
+  img.setAttribute("alt", data.img_feature.alt);
+  img.className = "logotipo";
+  title.appendChild(img);
 
-    questionsData = data.questions[0];
-    showQuestion(currentQuestionIndex);
-  })
-  .catch(err => console.error('Error fetching data:', err));
+  questionsData = data.questions[0];
+  showQuestion(currentQuestionIndex);
+})
+.catch(err => console.error('Error fetching data:', err));
 
 
 let currentQuestionIndex = 0;
@@ -67,39 +94,20 @@ function createRadioInputs(questionData, articleElement) {
 
 function showQuestion(index) {
   const questions = questionsData[index];
-  const section = document.createElement('section');
-  section.innerHTML = ''; // Clear previous content if needed
-  document.body.appendChild(section);
-  
+  const section = document.getElementById('section');
+  section.innerHTML = ''; // Clear previous question
+
   const articleElement = document.createElement('article');
   const questionTitle = document.createElement('h3');
   questionTitle.textContent = questions.question;
   articleElement.appendChild(questionTitle);
-
+    
   createRadioInputs(questions, articleElement);
 
   section.appendChild(articleElement);
 
-  const buttonElement = document.createElement('button');
-  const textButton = document.createTextNode('Siguiente');
-  buttonElement.appendChild(textButton);
-  buttonElement.classList.add('form-buttons');
-  buttonElement.id = 'botonSig';
-  buttonElement.setAttribute('type', 'button'); // '
-  section.appendChild(buttonElement);
-  
   // Habilitar el botón "Siguiente"
-  buttonElement.disabled = false;
-
-  // Agregar el evento click después de crear el botón
-  document.getElementById('botonSig').addEventListener('click', function() {
-    const selectedAnswer = document.querySelector(`input[name="question_${questionsData[currentQuestionIndex].id}"]:checked`);
-    if (selectedAnswer) {
-      validateAnswer(currentQuestionIndex, selectedAnswer.value);
-    } else {
-      alert('Por favor, selecciona una respuesta.');
-    }
-  });
+  document.getElementById('botonSig').disabled = false;
 }
 
 function validateAnswer(questionIndex, selectedAnswer) {
@@ -129,6 +137,15 @@ function validateAnswer(questionIndex, selectedAnswer) {
     }
   }, 2000); // Esperar 2 segundos antes de pasar a la siguiente pregunta
 }
+
+document.getElementById('botonSig').addEventListener('click', function() {
+  const selectedAnswer = document.querySelector(`input[name="question_${questionsData[currentQuestionIndex].id}"]:checked`);
+  if (selectedAnswer) {
+    validateAnswer(currentQuestionIndex, selectedAnswer.value);
+  } else {
+    alert('Por favor, selecciona una respuesta.');
+  }
+});
 
 function showResult(correctCount) {
   const resultMessage = `Respuestas correctas: ${correctCount} de ${questionsData.length}`;
