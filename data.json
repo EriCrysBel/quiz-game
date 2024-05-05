@@ -4,7 +4,7 @@
     "description": "Un paseo de una hora por los monumentos más representativos de Aranjuez",
     "author": "Erika Crystal Bello Vargas",
     "img_feature":{
-        "url": "./img/inicio.png",
+        "url": "img/inicio.png",
         "alt": "Vista de la Plaza Mayor de Aranjuez"
     },
     "questions" : [[
