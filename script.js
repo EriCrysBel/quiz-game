@@ -36,6 +36,18 @@ const logoImage = document.createElement('img');
   `
   document.body.appendChild(quizContainer)
 
+  const footer = document.createElement('footer')
+  footer.innerHTML=
+  `
+  <footer>
+  <img src="img/MINIMINISO-LOGO.png" alt="logotipo miniminiso" width="150">
+  <p>&#169 Ericrysbel</p>
+  <a href="https://github.com/EriCrysBel">GitHub</a>
+
+  </footer>
+  `
+  document.body.appendChild(footer)
+
   
 // Obtener los datos del archivo JSON
 fetch('./data.json')
